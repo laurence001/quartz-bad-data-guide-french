@@ -3,6 +3,7 @@
 **Une liste des problèmes pouvant être rencontrés dans des jeux de données et des suggestions pour les résoudre.**
 
 En tant que journaliste, vous êtes amenés à travailler de plus en plus avec des données. Mais celles-ci ne sont pas toujours d’une qualité suffisante pour être exploitées. Ce guide présente des descriptions détaillées des problèmes relatifs à la qualité des données et suggère des solutions pour résoudre une large part des problèmes rencontrés.
+
 La plupart de ces problèmes peuvent être résolus. Lorsque cela n’est pas possible, cela signifie que les données seront inutilisables. Dans certains cas, une solution est possible mais moyennant quelques précautions. De manière à tenir compte de ces ambigüités, ce guide est organisé en fonction de la personne la plus adéquate pour résoudre le problème : vous, votre source, un expert, etc. Vous trouverez également des suggestions sur ce qu’il est possible de faire lorsqu’il n’est pas possible de trouver une personne-ressource.
 
 C'est en vous familiarisant avec les types de problèmes que vous êtes susceptibles de rencontrer que vous aurez les meilleures chances de les identifier. Prévenir, c'est guérir ! 
@@ -20,64 +21,64 @@ Ce document est sous licence [Creative Commons Attribution-Pas d'utilisation com
 * [Portugais](http://escoladedados.org/2016/09/08/guia-quartz-para-limpeza-de-dados/)
 * [Espagnol](http://es.schoolofdata.org/guia-quartz/)
 
-# Index
+# Sommaire
 
 ## Problèmes que vos sources peuvent vous aider à résoudre
 
 * [Valeurs manquantes](#valeurs-manquantes)
-* [Valeurs manquantes remplacées par zéro](#zeros-remplacent-valeurs-manquantes)
-* [Données manquantes mais existantes](#donnees-existantes-manquantes)
-* [Lignes ou valeurs dupliquées](#lignes-ou-valeurs-dupliquees)
-* [Incohérence orthographique](#incoherence-orthographique)
-* [Incohérence dans l'ordre des noms](#incoherence-ordre-des-noms)
-* [Incohérence des formats de date](#incoherence-formats-de-date)
-* [Type de valeur non spécifié](#type-de-valeur-non-specifie)
-* [Catégories mal choisies](#mauvais-choix-categorie)
-* [Etiquetage des colonnes ambigu](#etiquetage-ambigu)
-* [Provenance non documentée](#provenance-non-documentee)
-* [Présence de valeurs suspectes](#valeurs-suspectes)
-* [Données trop grossières](#donnees-grossieres)
-* [Les totaux diffèrent des agrégats publiés](#totaux-differents-agregats)
-* [La feuille de calcul comporte 65.536 lignes](#nombre-de-lignes-eleve)
-* [La feuille de calcul comporte 255 colonnes](#nombre-de-colonnes-eleve)
-* [La feuille de calcul comporte des dates en 1900 ou 1904](#ecarts-dates)
-* [Textes convertis en nombres](#textes-en-nombres)
-* [Numéros stockés en tant que texte](#nombres-en-textes)
+* [Valeurs manquantes remplacées par zéro](#valeurs-manquantes-remplacées-par-zéro)
+* [Données manquantes mais existantes](#données-manquantes-mais-existantes)
+* [Lignes ou valeurs dupliquées](#lignes-ou-valeurs-dupliquées)
+* [Incohérence orthographique](#incohérence-orthographique)
+* [Incohérence dans l'ordre des noms](#incohérence-dans-lordre-des-noms)
+* [Incohérence des formats de date](#incohérence-des-formats-de-date)
+* [Type de valeur non spécifié](#type-de-valeurs-non-spécifié)
+* [Catégories mal choisies](#catégories-mal-choisies)
+* [Etiquetage des colonnes ambigu](#etiquetage-des-colonnes-ambigu)
+* [Provenance non documentée](#provenance-non-documentée)
+* [Présence de valeurs suspectes](#présence-de-valeurs-suspectes)
+* [Données trop grossières](#données-trop-grossières)
+* [Les totaux diffèrent des agrégats publiés](#les-totaux-diffèrent-des-agrégats-publiés)
+* [La feuille de calcul comporte 65.536 lignes](#la-feuille-de-calcul-comporte-65536-lignes)
+* [La feuille de calcul comporte 255 colonnes](#la-feuille-de-calcul-comporte-255-colonnes)
+* [La feuille de calcul comporte des dates en 1900 ou 1904](#la-feuille-de-calcul-comporte-des-dates-en-1900-ou-1904)
+* [Textes convertis en nombres](#textes-convertis-en-nombres)
+* [Numéros stockés en tant que texte](#numéros-stockés-en-tant-que-texte)
 
 ## Problèmes que vous pouvez résoudre
 
-* [Problème d'encodage](#texte-confus)
-* [Les fins de ligne sont confuses/brouillées](#fin-de-lignes-confuses)
-* [Données au format PDF](#donnees-pdf)
-* [Données trop granulaires](#donnees-granulaires)
-* [Encodage humain des données](#encodage-humain)
-* [Données mélangées avec le formatage et les annotations](#donnees-melangees-formatage-annotations)
-* [Agrégations calculées avec des valeurs manquantes](#agregations-valeurs-manquantes)
-* [Echantillon non aléatoire](#echantillon-non-aleatoire)
-* [Marge d'erreur trop importante](#marge-d-erreur-trop-importante)
-* [Marge d'erreur inconnue](#marge-d-erreur-inconnue)
-* [Echantillon biaisé](#echantillon-biaise)
-* [Données éditées manuellement](#donnees-editees-manuellement)
-* [L'inflation fausse les données](#inflation-fausse-donnees)
-* [Des variations naturelles / saisonnières faussent les données](#donnees-saisonnieres-faussent-donnees)
-* [Manipulation des périodes de temps](#manipulation-periodes-temps)
-* [Manipulation du cadre de référence](#manipulation-cadre-reference)
+* [Problème d'encodage](#problème-dencodage)
+* [Les fins de ligne sont confuses/brouillées](#les-fins-de-ligne-sont-confusesbrouillées)
+* [Données au format PDF](#données-au-format-pdf)
+* [Données trop granulaires](#données-trop-granulaires)
+* [Encodage humain des données](#encodage-humain-des-données)
+* [Données mélangées avec le formatage et les annotations](#données-mélangées-avec-le-formatage-et-les-annotations)
+* [Agrégations calculées avec des valeurs manquantes](#agrégations-calculées-avec-des-valeurs-manquantes)
+* [Echantillon non aléatoire](#echantillon-non-aléatoire)
+* [Marge d'erreur trop importante](#marge-derreur-trop-importante)
+* [Marge d'erreur inconnue](#marge-derreur-inconnue)
+* [Echantillon biaisé](#echantillon-biaisé)
+* [Données éditées manuellement](#données-éditées-manuellement)
+* [L'inflation fausse les données](#linflation-fausse-les-données)
+* [Des variations naturelles / saisonnières faussent les données](#des-variations-naturelles--saisonnières-faussent-les-données)
+* [Manipulation des périodes de temps](#manipulation-des-périodes-de-temps)
+* [Manipulation du cadre de référence](#manipulation-du-cadre-de-référence)
 
 ## Problèmes qu'un expert peut vous aider à résoudre
 
-* [Source ou auteur non fiables](#auteur-non-fiable)
-* [Opacité du processus de collecte des données](#opacite-processus-collecte)
-* [Précision irréaliste des données](#assertions-irrealistes)
+* [Source ou auteur non fiables](#source-ou-auteur-non-fiables)
+* [Opacité du processus de collecte des données](#opacité-du-processus-de-collecte-des-données)
+* [Précision irréaliste des données](#précision-irréaliste-des-données)
 * [Valeurs aberrantes inexplicables](#valeurs-aberrantes-inexplicables)
-* [Un index masque la variation sous-jacente](#variation-masquee)
-* [Résultats piratés](#resultats-pirates)
-* [Echec de la loi de Benford](#echec-loi-benford)
-* [Trop bon pour être vrai](#trop-bon-pour-etre-vrai)
+* [Un index masque la variation sous-jacente](#un-index-masque-la-variation-sous-jacente)
+* [Résultats piratés](#résultats-piratés)
+* [Echec de la loi de Benford](#echec-de-la-loi-de-benford)
+* [Trop bon pour être vrai](#trop-bon-pour-être-vrai)
 
 ## Problèmes qu'un développeur peut vous aider à résoudre
 
-* [Données agrégées dans une mauvaise catégorie ou zone géographique](#donnees-agregees-mauvaise-categorie)
-* [Données dans un document scanné](#donnees-dans-document-scanne)
+* [Données agrégées dans une mauvaise catégorie ou zone géographique](#données-agrégées-dans-une-mauvaise-catégorie-ou-zone-géographique)
+* [Données dans un document scanné](#données-dans-un-document-scanné)
 
 # Liste détaillée de tous les problèmes relatifs à la qualité des données
 
@@ -96,8 +97,8 @@ Il y a pire qu’une valeur manquante : lorsque celle-ci est remplacée par une 
 La même prudence doit être de rigueur pour toute autre valeur non numérique où un « 0 » peut être représenté d'une autre manière. Par exemple, une valeur fausse '0' pour une date est souvent affichée en tant que' 1970-01-01T00: 00: 00Z' ou '1969-12-31T24: 59: 59Z' - ce format date de [l'époque Unix pour les horodatages] (https: //en.wikipedia.org/wiki/Unix_time#Encoding_time_as_a_number). En matière de géolocalisation, cela peut conduire à la représentation de localisations erronées telles que "0 ° 00'00.0" N + 0 ° 00'00.0 "E" ou simplement "0 ° N 0 ° E" qui est un point qui se trouve dans l'océan Atlantique, au sud du Ghana aussi appelé [Null Island] (https://en.wikipedia.org/wiki/Null_Island).
 Voir aussi:
 
-* [Présence de valeurs suspectes](#valeurs-suspectes)
-* [La feuille de calcul comporte des dates en 1900 ou 1904](#ecarts-dates)
+* [Présence de valeurs suspectes](#présence-de-valeurs-suspectes)
+* [La feuille de calcul comporte des dates en 1900 ou 1904](#la-feuille-de-calcul-comporte-des-dates-en-1900-ou-1904)
 
 ### Données manquantes mais existantes
 
@@ -116,13 +117,13 @@ L'orthographe est l'un des moyens les plus évidents de savoir si les données o
 
 Voir aussi : 
 
-* [Encodage humain des données](#encodage-humain)
+* [Encodage humain des données](#encodage-humain-des-données)
 
 ### Incohérence dans l'ordre des noms
 
 Vos données comportent-elles des noms de pays du Moyen-Orient ou d'Asie de l'Est ? Etes-vous certain que les noms de famille se trouvent toujours au même endroit ? Les producteurs de données se trompent habituellement dans ce type de noms. Si vous travaillez avec une liste de noms étrangers, vous devriez au moins procéder à un examen superficiel avant de supposer que les colonnes « first_name » et « last_name », par exemple, vous donnera quelque chose d’approprié à publier.
 
-* [Encodage humain des données](#encodage-humain)
+* [Encodage humain des données](#encodage-humain-des-données)
 
 ### Incohérence des formats de date
 
@@ -133,8 +134,8 @@ Quelle est la bonne date pour le mois de septembre ?
 
 La permière date a été rédigée par un Européen et le seconde par un Américain : [les deux sont donc correctes] (https://en.wikipedia.org/wiki/Date_format_by_country). Mais sans connaître l'historique des données, vous ne pouvez pas en être certain à coup sûr. Sachez d'où proviennent vos données et assurez-vous qu'elles ont toutes été créées par des personnes du même continent.
 
-* [Encodage humain des données](#encodage-humain)
-* [Provenance non documentée](#provenance-non-documentee)
+* [Encodage humain des données](#encodage-humain-des-données)
+* [Provenance non documentée](#provenance-non-documentée)
 
 ### Type de valeurs non spécifié
 
@@ -142,8 +143,8 @@ Ni le terme « poids » ni le terme « coût » ne donnent d'informations sur l'
 
 Voir aussi : 
 
-* [Etiquetage des colonnes ambigu](#etiquetage-ambigu)
-* [L'inflation fausse les données](#inflation-fausse-donnees)
+* [Etiquetage des colonnes ambigu](#etiquetage-des-colonnes-ambigu)
+* [L'inflation fausse les données](#linflation-fausse-les-données)
 
 ### Catégories mal choisies
 
@@ -161,7 +162,7 @@ Les données d'enquête, par exemple, sont rarement exhaustives. Les capteurs va
 
 Voir aussi : 
 
-* [Type de valeurs non spécifié](#type-de-valeur-non-specifie)
+* [Type de valeurs non spécifié](#type-de-valeurs-non-spécifié)
 
 ### Présence de valeurs suspectes
 
@@ -181,7 +182,7 @@ Dates :
 
 * ['1970-01-01T00:00:00Z'](https://en.wikipedia.org/wiki/Unix_time#Encoding_time_as_a_number)
 * ['1969-12-31T23:59:59Z'](https://en.wikipedia.org/wiki/Unix_time#Encoding_time_as_a_number)
-* ['1er janvier 1900'](#ecarts-dates)
+* ['1er janvier 1900'](#la-feuille-de-calcul-comporte-des-dates-en-1900-ou-1904)
 
 Localisations :
 
@@ -193,9 +194,9 @@ Pour en savoir plus sur la standardisation des formats de dates ou données de g
 
 Voir aussi : 
 
-* [La feuille de calcul comporte 65.536 lignes](#nombre-de-lignes-eleve)
-* [La feuille de calcul comporte 255 colonnes](#nombre-de-colonnes-eleve)
-* [La feuille de calcul comporte des dates en 1900 ou 1904](#ecarts-dates)
+* [La feuille de calcul comporte 65.536 lignes](#la-feuille-de-calcul-comporte-65536-lignes)
+* [La feuille de calcul comporte 255 colonnes](#la-feuille-de-calcul-comporte-255-colonnes)
+* [La feuille de calcul comporte des dates en 1900 ou 1904](#la-feuille-de-calcul-comporte-des-dates-en-1900-ou-1904)
 
 ### Données trop grossières
 
@@ -205,8 +206,8 @@ Par ailleurs, vous ne devriez jamais diviser une valeur annuelle par 12 puis la 
 
 Voir aussi : 
 
-* [Données trop granulaires](#donnees-granulaires)
-* [Données agrégées dans une mauvaise catégorie ou zone géographique](#donnees-agregees-mauvaise-categorie)
+* [Données trop granulaires](#données-trop-granulaires)
+* [Données agrégées dans une mauvaise catégorie ou zone géographique](#données-agrégées-dans-une-mauvaise-catégorie-ou-zone-géographique)
 
 ### Les totaux diffèrent des agrégats publiés
 
@@ -252,7 +253,7 @@ Un nombre important de jeux de données n’est disponible qu’au seul format P
 
 Voir aussi : 
 
-* [Données dans un document scanné](#donnees-dans-document-scanne)
+* [Données dans un document scanné](#données-dans-un-document-scanné)
 
 ### Données trop granulaires
 
@@ -262,8 +263,8 @@ Les données peuvent être agrégées en utilisant la fonction de tableau crois�
 
 Voir aussi : 
 
-* [Données trop grossières](#donnees-grossieres)
-* [Données agrégées dans une mauvaise catégorie ou zone géographique](#donnees-agregees-mauvaise-categorie).
+* [Données trop grossières](#données-trop-grossières)
+* [Données agrégées dans une mauvaise catégorie ou zone géographique](#données-agrégées-dans-une-mauvaise-catégorie-ou-zone-géographique).
 
 ### Encodage humain des données
 
@@ -282,7 +283,7 @@ Imaginez un jeu de données avec 100 lignes et une colonne appelée « coût ».
 Voir aussi : 
 
 * [Valeurs manquantes](#valeurs-manquantes)
-* [Valeurs manquantes remplacées par zéro](#zeros-remplacent-valeurs-manquantes)
+* [Valeurs manquantes remplacées par zéro](#valeurs-manquantes-remplacées-par-zéro)
 
 ### Echantillon non aléatoire
 
@@ -290,7 +291,7 @@ Une erreur d'échantillonnage non aléatoire se produit lorsqu'une enquête ou t
 
 Voir aussi : 
 
-* [Echantillon biaisé](#echantillon-biaise)
+* [Echantillon biaisé](#echantillon-biaisé)
 
 ### Marge d'erreur trop importante
 
@@ -306,25 +307,25 @@ Parfois, le problème n'est pas que la marge d'erreur soit trop grande, c'est qu
 
 Voir aussi : 
 
-* [Marge d'erreur trop importante](#marge-d-erreur-trop-importante)
+* [Marge d'erreur trop importante](#marge-derreur-trop-importante)
 
 ### Echantillon biaisé
 
-A l’instar [d’un échantillon qui n'est pas aléatoire] (# echantillon-non-aleatoire), un échantillon biaisé résulte d'un manque de soin dans la façon dont l'échantillonnage a été exécuté (ou d’une volonté de le déformer). Un échantillon pourrait être biaisé parce que le sondage a été réalisé sur Internet et que les personnes les plus pauvres n'utilisent pas Internet aussi fréquemment que les riches. Les enquêtes doivent être soigneusement pondérées pour s'assurer qu'elles couvrent des segments proportionnels de toute population qui pourraient fausser les résultats. Il est presque impossible de le faire parfaitement…
+A l’instar [d’un échantillon qui n'est pas aléatoire] (# echantillon-non-aléatoire), un échantillon biaisé résulte d'un manque de soin dans la façon dont l'échantillonnage a été exécuté (ou d’une volonté de le déformer). Un échantillon pourrait être biaisé parce que le sondage a été réalisé sur Internet et que les personnes les plus pauvres n'utilisent pas Internet aussi fréquemment que les riches. Les enquêtes doivent être soigneusement pondérées pour s'assurer qu'elles couvrent des segments proportionnels de toute population qui pourraient fausser les résultats. Il est presque impossible de le faire parfaitement…
 Voir aussi : 
 
-* [Echantillon non aléatoire](#echantillon-non-aleatoire)
+* [Echantillon non aléatoire](#echantillon-non-aléatoire)
 
 ### Données éditées manuellement
 
-L'édition manuelle de données donne lieu quasi aux mêmes problèmes qu’un [encodage humain des données] (# encodage-humain) sauf que cela arrive après coup. En fait, les données sont souvent éditées manuellement dans le but de les corriger.
+L'édition manuelle de données donne lieu quasi aux mêmes problèmes qu’un [encodage humain des données] (# encodage-humain-des-données) sauf que cela arrive après coup. En fait, les données sont souvent éditées manuellement dans le but de les corriger.
 
 Les problèmes d'édition manuelle sont une des raisons pour lesquelles vous devez toujours vous assurer que la provenance de vos données soit bien documentée. Dans la mesure du possible, essayez d’obtenir le jeu de données original ou tout au moins sa version la plus ancienne.
 
 Voir aussi : 
 
-* [Provenance non documentée](#provenance-non-documentee)
-* [Encodage humain des données](#encodage-humain)
+* [Provenance non documentée](#provenance-non-documentée)
+* [Encodage humain des données](#encodage-humain-des-données)
 
 ### L'inflation fausse les données
 
@@ -340,7 +341,7 @@ De nombreux types de données fluctuent naturellement en raison de certaines for
 
 Voir aussi : 
 
-* [L'inflation fausse les données](#inflation-fausse-donnees)
+* [L'inflation fausse les données](#linflation-fausse-les-données)
 
 ### Manipulation des périodes de temps
 
@@ -350,7 +351,7 @@ Si vous disposez de données qui couvrent une période limitée, essayez d'évit
 
 Voir aussi : 
 
-* [Manipulation du cadre de référence](#manipulation-cadre-reference)
+* [Manipulation du cadre de référence](#manipulation-du-cadre-de-référence)
 
 ### Manipulation du cadre de référence
 
@@ -360,7 +361,7 @@ Dans la mesure du possible, essayez de comparer les taux de plusieurs points de 
 
 Voir aussi : 
 
-* [Manipulation des périodes de temps](#manipulation-periodes-temps)
+* [Manipulation des périodes de temps](#manipulation-des-périodes-de-temps)
 
 ## Problèmes qu'un expert peut vous aider à résoudre
 
@@ -370,15 +371,15 @@ Parfois, les seules données dont vous disposez proviennent d'une source à prop
 
 ### Opacité du processus de collecte des données
 
-Il est très facile d'introduire de fausses suppositions ou des erreurs dans les processus de collecte des données. Pour cette raison, il est important que les méthodes utilisées soient transparentes. Il est rare que vous sachiez exactement comment un jeu de données a été recueilli mais les indications d'un problème peuvent inclure des nombres qui [affirment une précision irréaliste] (# data-asserts-unrealistic-precision) ou des données qui sont trop bonnes pour être vraies. # trop-bon-pour-etre-vrai).
+Il est très facile d'introduire de fausses suppositions ou des erreurs dans les processus de collecte des données. Pour cette raison, il est important que les méthodes utilisées soient transparentes. Il est rare que vous sachiez exactement comment un jeu de données a été recueilli mais les indications d'un problème peuvent inclure des nombres qui [affirment une précision irréaliste] (# data-asserts-unrealistic-precision) ou des données qui sont trop bonnes pour être vraies. # trop-bon-pour-être-vrai).
 
 Parfois, l'histoire d'origine peut être louche : est-ce que tel ou tel universitaire a vraiment interviewé 50 membres de gangs actifs du côté sud de Chicago ? Si la façon dont les données ont été recueillies semble douteuse et que votre source ne peut vous founir des données documentées, vous devriez toujours vérifier auprès d'un autre expert que les données auraient pu raisonnablement être collectées de la manière décrite.
 
 Voir aussi : 
 
-* [Provenance non documentée](#provenance-non-documentee)
-* [Précision irréaliste des données](#assertions-irrealistes)
-* [Trop bon pour être vrai](#trop-bon-pour-etre-vrai)
+* [Provenance non documentée](#provenance-non-documentée)
+* [Précision irréaliste des données](#précision-irréaliste-des-données)
+* [Trop bon pour être vrai](#trop-bon-pour-être-vrai)
 
 ### Précision irréaliste des données
 
@@ -400,7 +401,7 @@ Si vous souhaitez publier les résultats d'une étude, vous devez comprendre ce 
 
 Voir aussi : 
 
-* [Marge d'erreur trop importante](#marge-d-erreur-trop-importante)
+* [Marge d'erreur trop importante](#marge-derreur-trop-importante)
 
 ### Echec de la loi de Benford
 
@@ -416,12 +417,12 @@ Méfiez-vous des données qui prétendent représenter quelque chose que vous ne
 
 ### Données agrégées dans une mauvaise catégorie ou zone géographique
 
-Parfois, vos données présentent un bon niveau de détail (ni [trop grossier] (# donnees-grossieres) ni [trop granulaire] (# donnees-granulaires)), mais elles ont été agrégées dans un groupe différent de celui que vous souhaitiez. L'exemple classique est celui des données agrégées via des codes postaux que vous préfériez obtenir par quartier. Dans de nombreux cas, il s'agit d'un problème impossible à résoudre sans obtenir de votre source des données plus granulaires, mais parfois les données peuvent être mappées proportionnellement d'un groupe à l'autre. Cela ne doit être entrepris qu'avec une compréhension minutieuse de la [marge d'erreur] (#marge-d-erreur-trop-importante) qui peut être introduite dans le processus. Si vous avez agrégé des données dans des mauvais groupes, demandez à un développeur s'il est possible de les regrouper. 
+Parfois, vos données présentent un bon niveau de détail (ni [trop grossier] (# données-trop-grossières) ni [trop granulaire] (# données-trop-granulaires)), mais elles ont été agrégées dans un groupe différent de celui que vous souhaitiez. L'exemple classique est celui des données agrégées via des codes postaux que vous préfériez obtenir par quartier. Dans de nombreux cas, il s'agit d'un problème impossible à résoudre sans obtenir de votre source des données plus granulaires, mais parfois les données peuvent être mappées proportionnellement d'un groupe à l'autre. Cela ne doit être entrepris qu'avec une compréhension minutieuse de la [marge d'erreur] (#marge-derreur-trop-importante) qui peut être introduite dans le processus. Si vous avez agrégé des données dans des mauvais groupes, demandez à un développeur s'il est possible de les regrouper. 
 Voir aussi : 
 
-* [Données trop grossières](#donnees-grossieres)
-* [Données trop granulaires](#donnees-granulaires)
-* [Marge d'erreur trop importante](#marge-d-erreur-trop-importante)
+* [Données trop grossières](#données-trop-grossières)
+* [Données trop granulaires](#données-trop-granulaires)
+* [Marge d'erreur trop importante](#marge-derreur-trop-importante)
 
 ### Données dans un document scanné
 
@@ -433,4 +434,4 @@ De nombreux sites web proposent logiciels de conversion. Il existe également de
 
 Voir aussi : 
 
-* [Données au format PDF](#donnees-pdf)
+* [Données au format PDF](#données-au-format-pdf)
